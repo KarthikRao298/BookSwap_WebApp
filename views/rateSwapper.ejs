@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+
+
+    <body>
+
+
+        <% include partial/site-navigation.ejs %>
+        <div class="container">
+
+
+            <div class="row">
+
+                <% include partial/user-navigation.ejs %>
+
+                <div class="col-sm-8 text-left">
+
+                    <h2><%= item.itemName %></h2>
+                    <img class="img-responsive img-size " src="<%= item.imageUrl %>" alt="item logo">
+
+
+                <form action="/rateSwapper" method="POST">
+
+
+                  <div class="form-group" >
+                    <label for="swapperRate">Please give your rating for the swapper</label>
+                    <input name = "swapperRate" type="number" class="form-control" id="swapperRate" aria-describedby="rateHelp" placeholder="Enter rating between 1-5">
+                    <small id="rateHelp" class="form-text text-muted">
+                    We'll never share your rating with anyone else.
+                    </small>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Submit Rating</button>
+
+                </form>   
+<br><br>
+
+
+                </div>
+            </div>
+        </div><br>
+
+
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+
+

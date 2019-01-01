@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+    <body>
+
+
+        <% include partial/site-navigation.ejs %>
+
+
+
+
+        <div class="container">
+
+
+            <div class="row">
+
+
+                <% include partial/user-navigation.ejs %>
+                <div class="col-sm-8 text-left"> 
+
+
+                    <div class="container">
+                        <h2>Books for swap</h2>
+                        <%  if(userProf.userItems.length == 0){ %>
+                          <h3>You don't have any items in your list!</h3>
+                        <%} else {%>
+
+                        <table class="table table-hover" action="/myItem" method="POST">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Category</th>
+                                    <th>My Rating</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+            <%for(var i = 0;i < userProf.userItems.length;i++){%>
+                <%var obj = userProf.userItems[i].item%>
+                <tr>
+                <td><a href=  "/item?itemCode=<%= obj.itemCode%>" > <%= obj.itemName%></a> </td>
+                <td><%= obj.catalogCategory%></td>
+                <td><%= userProf.userItems[i].rating%></td>
+                <td><%= userProf.userItems[i].status%></td>
+                <%if(userProf.userItems[i].status === 'available'){%>
+                <td><a href="/myItems?action=update&theItem=<%= obj.itemCode%>" class="button">Update</a></td>
+                <%}%>
+                <%if(userProf.userItems[i].status === 'pending'){%>
+                <td><a href="/myItems?action=update&theItem=<%= obj.itemCode%>" class="button">Update</a></td>
+                <%}%>
+
+                <td><a href="myItems?action=delete&theItem=<%= obj.itemCode%>" class="button">Delete</a></td>
+                
+                </tr>
+                <%}%>
+
+                            </tbody>
+                        </table>
+
+                        <%  }%>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+
+

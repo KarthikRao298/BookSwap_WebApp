@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+
+
+    <body>
+
+
+        <% include partial/site-navigation.ejs %>
+        <div class="container">
+
+
+            <div class="row">
+
+                <% include partial/user-navigation.ejs %>
+
+                <div class="col-sm-8 text-left">
+
+                    <h2><%= item.itemName %></h2>
+                    <p><%= item.description %></p>
+                    <img class="img-responsive img-size " src="<%= item.imageUrl %>" alt="item logo">
+
+                    <div class="btn">
+                        <input type="button" class="btn btn-primary" value="Rate The Book" onclick="location.href = '/rateItem?itemCode=<%= item.itemCode %>'">
+                        <input type="button" class="btn btn-primary" value="Rate The Swapper" onclick="location.href = '/rateSwapper?itemCode=<%= item.itemCode %>'">
+
+                        <input type="button" class="btn btn-primary" value="Swap It" onclick="location.href = '/swap?itemCode=<%= item.itemCode %>'">
+                    </div>
+
+<br><br>
+
+                </div>
+            </div>
+        </div><br>
+
+
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+
+

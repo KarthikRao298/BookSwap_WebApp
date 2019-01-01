@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+
+    <body>
+
+        <% include partial/site-navigation.ejs %>
+        <div class="container">
+
+
+            <div class="row">
+
+                <% include partial/user-navigation.ejs %>
+
+                <h2> Swap this item </h2>
+                <h3><%= item.itemName %></h3>
+                <p><%= item.description %></p>
+
+
+                <div class="col-sm-8 text-left"> 
+
+                    <img class="img-responsive img-size " src="<%= item.imageUrl %>" alt="item logo">
+
+                    <h2> Your list of available items: </h2>
+                    <form>
+
+                    <%for(var i = 0;i < userProf.userItems.length; i++){%>
+
+                        <%if(userProf.userItems[i].status === 'available'){%>
+
+                            <input type="radio" name="gender" value="<%= userProf.userItems[i].itemCode %>" checked> <%= userProf.userItems[i].item.itemName %> <br>
+
+                        <%}%>
+                    <%}%>
+
+                    </form>
+                
+                    <div class="btn">
+                        <input type="button" class="btn btn-primary" value="Confirm Swap" onclick="location.href = '/mySwaps'">
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div><br>
+
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+
+

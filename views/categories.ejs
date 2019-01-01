@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+
+    <body>
+
+        <% include partial/site-navigation.ejs %>
+
+
+        <div class="container">
+
+
+            <div class="row">
+
+                <% include partial/user-navigation.ejs %>
+
+
+                <div class="col-sm-8 text-left"> 
+
+                    <% if(error_msg){ %>
+                        <p> <%= error_msg%> </p>
+                    <% } %>
+                    
+                    <h1>Categories of Books</h1>
+     
+                    <% for(var j=0; j < categoriesList.length; j++) { %>
+
+                    <h3><%= categoriesList[j] %></h3>
+
+                    <% for(var i=0; i < itemsList.length; i++) { %>
+                    
+                    <% if (itemsList[i].catalogCategory == categoriesList[j]) {%>
+                    <p><a href="/categories?itemCode=<%=itemsList[i].itemCode%>"><%= itemsList[i].itemName %></a></p>
+                    <% } %>
+                    
+                    <% } %>
+
+                    <% } %>
+
+                </div>
+            </div>
+        </div><br>
+
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+

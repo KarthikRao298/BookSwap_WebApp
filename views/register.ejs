@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+
+    <body>
+
+        <% include partial/site-navigation.ejs %>
+
+        <div class="container">
+
+            <div class="row">
+
+                <% include partial/user-navigation.ejs %>
+
+                <div class="col-sm-8 text-left"> 
+                <h1> Create an account </h1>
+                <% if(error_msg){ %>
+                    <p> <%= error_msg%> </p>
+                <% } %>
+
+                <form action="/register?action=signUp" method="POST">
+
+
+                  <div class="form-group">
+                    <label for="inFirstName">First name</label>
+                    <input name = "inFirstName" type="name" class="form-control" id="inFirstName" placeholder="Rob">
+                    <small id="firstNameHelpBlock" class="form-text text-muted">
+                    Your first name must be 1-20 characters long
+                    </small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inLastName">Last name</label>
+                    <input name = "inLastName" type="name" class="form-control" id="inLastName" placeholder="McDonald">
+                    <small id="LastNameHelpBlock" class="form-text text-muted">
+                    Your last name must be 1-20 characters long
+                    </small>
+                  </div>
+
+
+                  <div class="form-group" >
+                    <label for="inEmail">Email address</label>
+                    <input name = "inEmail" type="email" class="form-control" id="inEmail" aria-describedby="emailHelp" placeholder="rob@uncc.edu">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
+                    </small>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="inAddress1Field">Address line 1</label>
+                    <input name = "inAddress1" type="address" class="form-control" id="inAddress1Field" placeholder="University Blvd">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inAddress2Field">Address line 2</label>
+                    <input name = "inAddress2" type="address" class="form-control" id="inAddress2Field" placeholder="UNCC">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inCity">City</label>
+                    <input name = "inCity" type="city" class="form-control" id="inCity" placeholder="Charlotte">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inState">State</label>
+                    <input name = "inState" type="state" class="form-control" id="inState" placeholder="North Carolina">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inPostalCode">Postal Code</label>
+                    <input name = "inPostalCode" type="number" class="form-control" id="inPostalCode" placeholder="28262">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inCountry">Country</label>
+                    <input name = "inCountry" type="country" class="form-control" id="inCountry" placeholder="US">
+                  </div>
+
+                  <div class="form-group" >
+                    <label for="inUserId">User ID</label>
+                    <input name = "inUserId" type="number" class="form-control" id="inUserId" aria-describedby="userIdHelp" placeholder="621">
+                    <small id="userIdHelp" class="form-text text-muted">User ID should be a number 
+                    </small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inPassword">Password</label>
+                    <input name = "inPassword" type="password" class="form-control" id="inPassword" placeholder="Password">
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    </small>
+                  </div>
+
+                 
+                  <button type="submit" class="btn btn-primary">Sign Up</button>
+
+
+                </form>   
+
+                <br>
+                <p>Already have an account?
+                <a href="login">Login </a></p>
+
+
+
+
+                </div>
+            </div>
+
+
+        </div><br>
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+

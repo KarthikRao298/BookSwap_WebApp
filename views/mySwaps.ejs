@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include partial/header.ejs %>
+    <body>
+
+        <% include partial/site-navigation.ejs %>
+
+        <div class="container">
+
+            <div class="row">
+
+                <% include partial/user-navigation.ejs %>
+                <div class="col-sm-8 text-left"> 
+
+                    <div class="container">
+                        <h2>Charlotte's swap offers</h2>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Swap Offer</th>
+                                    <th>Status</th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                
+
+
+                        <tbody>
+  
+                        <%for(var i = 0; i < userReqItem2D.length; i++){%>
+                        <%var ownItemObj = userReqItem2D[0][0] %>
+                        <%var wantItemObj = userReqItem2D[0][1] %>
+                        <tr>
+                        <td><a href=  "/categories?itemCode=<%= ownItemObj.itemCode%>" >
+                         <%= ownItemObj.itemName%></a> </td>
+                        
+                        <td><a href=  "/categories?itemCode=<%= wantItemObj.itemCode%>" >
+                         <%= wantItemObj.itemName%></a> </td>
+                        <td><%= userReqItem2D[0][2] %></td>
+
+                        <td><input type="button" class="btn btn-primary" value="Withdraw" onclick="location.href = '/myItems?action=withdraw&theItem=<%= ownItemObj.itemCode%>';">
+                        </td>
+                        </br>
+                        </tr>
+                        <%}%>
+
+
+                        <%for(var i = 0; i < othersReqItem2D.length; i++){%>
+                        <%var ownItemObj = othersReqItem2D[0][0] %>
+                        <%var wantItemObj = othersReqItem2D[0][1] %>
+                        <tr>
+                        <td><a href=  "/categories?itemCode=<%= ownItemObj.itemCode%>" >
+                         <%= ownItemObj.itemName%></a> </td>
+                        
+                        <td><a href=  "/categories?itemCode=<%= wantItemObj.itemCode%>" >
+                         <%= wantItemObj.itemName%></a> </td>
+                        <td><%= userReqItem2D[0][2] %></td>
+                        <td> <input type="button" class="btn btn-primary" value="Accept" onclick="location.href = '/myItems?action=accept&theItem=<%= wantItemObj.itemCode%>';"> </td>
+
+                        <td><input type="button" class="btn btn-primary" value="Reject" onclick="location.href = '/myItems?action=accept&theItem=<%= wantItemObj.itemCode%>';"> </td>
+
+                        </td>
+                        </br>
+                        </tr>
+                        <%}%>
+
+
+                        </tbody>
+
+
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div><br>
+
+        <% include partial/footer.ejs %>
+
+    </body>
+</html>
+
+
+
+
+
