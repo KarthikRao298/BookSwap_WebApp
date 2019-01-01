@@ -1,0 +1,57 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+    margin-bottom: 5px;
+    border-radius: 0;
+}
+
+/* Remove the jumbotron's default bottom margin */ 
+.jumbotron {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 10px;  
+
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f1f1f1;
+    position : fixed;  
+    padding: 0%;
+    width : 100%;
+    bottom: 0%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+.container {
+    width: 100%;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+    margin-top: 0px;
+    padding-bottom: 20px;
+
+}
+
+button a {
+    color: #f2f3f5;
+    text-decoration:none;
+}
+
+button a:hover {
+    color: #f2f3f5;
+    text-decoration:none;
+}
+
+
+.img-size {
+    max-width: 20%
+}
