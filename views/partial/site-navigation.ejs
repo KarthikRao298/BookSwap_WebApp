@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <h1>Book Swap</h1>
+        <p>A Niner Book Swapping Store!</p>
+      </div>
+      <div class="col-xs-2">
+        <img class="img-responsive" src="/resources/images/logo.jpeg" alt="logo">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="../myItems">My Books</a></li>
+        <li><a href="../mySwaps">My Swaps</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+      <% if (login) {%>
+        <li><a href="/myItems?action=signout"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+      <% }else{%>
+        <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+      <%}%>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
